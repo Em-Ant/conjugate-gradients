@@ -1,0 +1,12 @@
+
+# binaries
+
+*.a
+*.lib
+*.o
+*.exe
+*.dll
+*.so
+
+# backups
+*~
