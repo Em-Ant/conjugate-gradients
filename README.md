@@ -1,6 +1,6 @@
-#Conjugate Gradients
+# Conjugate Gradients
 
-###Simple Implementation of the Iterative Solver
+### Simple Implementation of the Iterative Solver
 
 See [this paper](https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf) for a great explanation of the subject.
 
