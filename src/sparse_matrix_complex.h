@@ -30,7 +30,8 @@ class ComplexSparseMatrix
         ComplexSparseMatrix();
         ComplexSparseMatrix(unsigned long number_of_rows);
         ~ComplexSparseMatrix();
-        void setValue(unsigned long row_index, unsigned long column_index, complex<double> value, bool replace);
+        void setValue(unsigned long row_index, unsigned long column_index, complex<double> value);
+        void addToValue(unsigned long row_index, unsigned long column_index, complex<double> value);
         void gaxpy(complex<double> *input_vector, complex<double> *result_vector);
         void printOut();
 

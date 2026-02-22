@@ -13,9 +13,9 @@ TEST_CASE("Sparse Matrix - Basic Operations")
     SUBCASE("Set and get diagonal values")
     {
         Sparse A(3);
-        A.setValue(0, 0, 1.0, true);
-        A.setValue(1, 1, 2.0, true);
-        A.setValue(2, 2, 3.0, true);
+        A.setValue(0, 0, 1.0);
+        A.setValue(1, 1, 2.0);
+        A.setValue(2, 2, 3.0);
 
         REQUIRE(A.diag[0].val == 1.0);
         REQUIRE(A.diag[1].val == 2.0);
@@ -25,12 +25,12 @@ TEST_CASE("Sparse Matrix - Basic Operations")
     SUBCASE("Set off-diagonal values (symmetric)")
     {
         Sparse A(3);
-        A.setValue(0, 0, 1.0, true);
-        A.setValue(1, 1, 2.0, true);
-        A.setValue(2, 2, 1.0, true);
-        A.setValue(0, 1, 5.0, true);
-        A.setValue(0, 2, -3.0, true);
-        A.setValue(1, 2, 2.0, true);
+        A.setValue(0, 0, 1.0);
+        A.setValue(1, 1, 2.0);
+        A.setValue(2, 2, 1.0);
+        A.setValue(0, 1, 5.0);
+        A.setValue(0, 2, -3.0);
+        A.setValue(1, 2, 2.0);
 
         double x[3] = {1.0, 1.0, 1.0};
         double y[3] = {0.0};
@@ -48,9 +48,9 @@ TEST_CASE("Sparse Matrix - Basic Operations")
     SUBCASE("gaxpy computes A*x correctly")
     {
         Sparse A(2);
-        A.setValue(0, 0, 4.0, true);
-        A.setValue(1, 1, 9.0, true);
-        A.setValue(0, 1, 1.0, true);
+        A.setValue(0, 0, 4.0);
+        A.setValue(1, 1, 9.0);
+        A.setValue(0, 1, 1.0);
 
         double x[2] = {2.0, 3.0};
         double y[2] = {0.0};
@@ -78,12 +78,12 @@ TEST_CASE("CG Solver - Conjugate Gradient")
         // |  1  5 -3 |
         // |  5  2  2 |
         // | -3  2  1 |
-        prob.setMatrixValue(0, 0, 1.0, true);
-        prob.setMatrixValue(1, 1, 2.0, true);
-        prob.setMatrixValue(2, 2, 1.0, true);
-        prob.setMatrixValue(0, 1, 5.0, true);
-        prob.setMatrixValue(0, 2, -3.0, true);
-        prob.setMatrixValue(1, 2, 2.0, true);
+        prob.setMatrixValue(0, 0, 1.0);
+        prob.setMatrixValue(1, 1, 2.0);
+        prob.setMatrixValue(2, 2, 1.0);
+        prob.setMatrixValue(0, 1, 5.0);
+        prob.setMatrixValue(0, 2, -3.0);
+        prob.setMatrixValue(1, 2, 2.0);
 
         // RHS: B = [8, -2, 4]
         prob.right_hand_side[0] = 8.0;
@@ -126,12 +126,12 @@ TEST_CASE("CG Solver - Conjugate Gradient")
         prob.setMaxIterations(10000);
         prob.setTolerance(1e-15);
 
-        prob.setMatrixValue(0, 0, 1.0, true);
-        prob.setMatrixValue(1, 1, 2.0, true);
-        prob.setMatrixValue(2, 2, 1.0, true);
-        prob.setMatrixValue(0, 1, 5.0, true);
-        prob.setMatrixValue(0, 2, -3.0, true);
-        prob.setMatrixValue(1, 2, 2.0, true);
+        prob.setMatrixValue(0, 0, 1.0);
+        prob.setMatrixValue(1, 1, 2.0);
+        prob.setMatrixValue(2, 2, 1.0);
+        prob.setMatrixValue(0, 1, 5.0);
+        prob.setMatrixValue(0, 2, -3.0);
+        prob.setMatrixValue(1, 2, 2.0);
 
         prob.right_hand_side[0] = 8.0;
         prob.right_hand_side[1] = -2.0;
@@ -163,12 +163,12 @@ TEST_CASE("CG Solver - Conjugate Gradient")
         prob.setMaxIterations(10000);
         prob.setTolerance(1e-10);
 
-        prob.setMatrixValue(0, 0, 1.0, true);
-        prob.setMatrixValue(1, 1, 2.0, true);
-        prob.setMatrixValue(2, 2, 1.0, true);
-        prob.setMatrixValue(0, 1, 5.0, true);
-        prob.setMatrixValue(0, 2, -3.0, true);
-        prob.setMatrixValue(1, 2, 2.0, true);
+        prob.setMatrixValue(0, 0, 1.0);
+        prob.setMatrixValue(1, 1, 2.0);
+        prob.setMatrixValue(2, 2, 1.0);
+        prob.setMatrixValue(0, 1, 5.0);
+        prob.setMatrixValue(0, 2, -3.0);
+        prob.setMatrixValue(1, 2, 2.0);
 
         prob.right_hand_side[0] = 8.0;
         prob.right_hand_side[1] = -2.0;
@@ -199,12 +199,12 @@ TEST_CASE("CG Solver - Conjugate Gradient")
         prob.setMaxIterations(10000);
         prob.setTolerance(1e-10);
 
-        prob.setMatrixValue(0, 0, 1.0, true);
-        prob.setMatrixValue(1, 1, 2.0, true);
-        prob.setMatrixValue(2, 2, 1.0, true);
-        prob.setMatrixValue(0, 1, 5.0, true);
-        prob.setMatrixValue(0, 2, -3.0, true);
-        prob.setMatrixValue(1, 2, 2.0, true);
+        prob.setMatrixValue(0, 0, 1.0);
+        prob.setMatrixValue(1, 1, 2.0);
+        prob.setMatrixValue(2, 2, 1.0);
+        prob.setMatrixValue(0, 1, 5.0);
+        prob.setMatrixValue(0, 2, -3.0);
+        prob.setMatrixValue(1, 2, 2.0);
 
         prob.right_hand_side[0] = 8.0;
         prob.right_hand_side[1] = -2.0;
@@ -239,12 +239,12 @@ TEST_CASE("CG Solver - Conjugate Gradient")
         prob.setMaxIterations(10000);
         prob.setTolerance(1e-10);
 
-        prob.setMatrixValue(0, 0, 1.0, true);
-        prob.setMatrixValue(1, 1, 2.0, true);
-        prob.setMatrixValue(2, 2, 1.0, true);
-        prob.setMatrixValue(0, 1, 5.0, true);
-        prob.setMatrixValue(0, 2, -3.0, true);
-        prob.setMatrixValue(1, 2, 2.0, true);
+        prob.setMatrixValue(0, 0, 1.0);
+        prob.setMatrixValue(1, 1, 2.0);
+        prob.setMatrixValue(2, 2, 1.0);
+        prob.setMatrixValue(0, 1, 5.0);
+        prob.setMatrixValue(0, 2, -3.0);
+        prob.setMatrixValue(1, 2, 2.0);
 
         prob.right_hand_side[0] = 8.0;
         prob.right_hand_side[1] = -2.0;
@@ -272,20 +272,20 @@ TEST_CASE("CG Solver - Conjugate Gradient")
 
 TEST_CASE("Matrix - Replace vs Add")
 {
-    SUBCASE("replace=true overwrites value")
+    SUBCASE("setValue overwrites value")
     {
         Sparse A(2);
-        A.setValue(0, 0, 5.0, true); // replace
-        A.setValue(0, 0, 3.0, true); // replace again
+        A.setValue(0, 0, 5.0);
+        A.setValue(0, 0, 3.0);
 
         REQUIRE(A.diag[0].val == 3.0);
     }
 
-    SUBCASE("replace=false adds to value")
+    SUBCASE("addToValue adds to value")
     {
         Sparse A(2);
-        A.setValue(0, 0, 5.0, true);
-        A.setValue(0, 0, 3.0, false); // add
+        A.setValue(0, 0, 5.0);
+        A.addToValue(0, 0, 3.0);
 
         REQUIRE(A.diag[0].val == 8.0);
     }
@@ -296,9 +296,9 @@ TEST_CASE("Complex Sparse Matrix - Basic Operations")
     SUBCASE("Set and get diagonal values")
     {
         ComplexSparseMatrix A(3);
-        A.setValue(0, 0, complex<double>(1.0, 0.0), true);
-        A.setValue(1, 1, complex<double>(2.0, 0.0), true);
-        A.setValue(2, 2, complex<double>(3.0, 0.0), true);
+        A.setValue(0, 0, complex<double>(1.0, 0.0));
+        A.setValue(1, 1, complex<double>(2.0, 0.0));
+        A.setValue(2, 2, complex<double>(3.0, 0.0));
 
         REQUIRE(A.diagonal[0].val.real() == doctest::Approx(1.0));
         REQUIRE(A.diagonal[1].val.real() == doctest::Approx(2.0));
@@ -308,9 +308,9 @@ TEST_CASE("Complex Sparse Matrix - Basic Operations")
     SUBCASE("Set symmetric off-diagonal values (for eddy current)")
     {
         ComplexSparseMatrix A(2);
-        A.setValue(0, 0, complex<double>(1.0, 0.0), true);
-        A.setValue(1, 1, complex<double>(2.0, 0.0), true);
-        A.setValue(0, 1, complex<double>(3.0, 4.0), true);
+        A.setValue(0, 0, complex<double>(1.0, 0.0));
+        A.setValue(1, 1, complex<double>(2.0, 0.0));
+        A.setValue(0, 1, complex<double>(3.0, 4.0));
 
         complex<double> x[2] = {complex<double>(1.0, 0.0), complex<double>(1.0, 0.0)};
         complex<double> y[2] = {0.0, 0.0};
@@ -338,9 +338,9 @@ TEST_CASE("COCG Solver - Conjugate Orthogonal CG for Symmetric Complex")
         // Symmetric complex matrix (typical for eddy current problems)
         // | 3+0i   1+2i |
         // | 1+2i   4+0i |
-        prob.setMatrixValue(0, 0, complex<double>(3.0, 0.0), true);
-        prob.setMatrixValue(1, 1, complex<double>(4.0, 0.0), true);
-        prob.setMatrixValue(0, 1, complex<double>(1.0, 2.0), true);
+        prob.setMatrixValue(0, 0, complex<double>(3.0, 0.0));
+        prob.setMatrixValue(1, 1, complex<double>(4.0, 0.0));
+        prob.setMatrixValue(0, 1, complex<double>(1.0, 2.0));
 
         prob.right_hand_side[0] = complex<double>(10.0, 0.0);
         prob.right_hand_side[1] = complex<double>(8.0, 0.0);
@@ -376,11 +376,11 @@ TEST_CASE("COCG Solver - Conjugate Orthogonal CG for Symmetric Complex")
         // | 4+0i   1+1i   0+0i |
         // | 1+1i   3+0i   2-1i |
         // | 0+0i   2-1i   5+0i |
-        prob.setMatrixValue(0, 0, complex<double>(4.0, 0.0), true);
-        prob.setMatrixValue(1, 1, complex<double>(3.0, 0.0), true);
-        prob.setMatrixValue(2, 2, complex<double>(5.0, 0.0), true);
-        prob.setMatrixValue(0, 1, complex<double>(1.0, 1.0), true);
-        prob.setMatrixValue(1, 2, complex<double>(2.0, -1.0), true);
+        prob.setMatrixValue(0, 0, complex<double>(4.0, 0.0));
+        prob.setMatrixValue(1, 1, complex<double>(3.0, 0.0));
+        prob.setMatrixValue(2, 2, complex<double>(5.0, 0.0));
+        prob.setMatrixValue(0, 1, complex<double>(1.0, 1.0));
+        prob.setMatrixValue(1, 2, complex<double>(2.0, -1.0));
 
         prob.right_hand_side[0] = complex<double>(5.0, 1.0);
         prob.right_hand_side[1] = complex<double>(6.0, 2.0);
@@ -412,11 +412,11 @@ TEST_CASE("COCG Solver - Conjugate Orthogonal CG for Symmetric Complex")
         prob.setMaxIterations(1000);
         prob.setTolerance(1e-12);
 
-        prob.setMatrixValue(0, 0, complex<double>(4.0, 0.0), true);
-        prob.setMatrixValue(1, 1, complex<double>(3.0, 0.0), true);
-        prob.setMatrixValue(2, 2, complex<double>(5.0, 0.0), true);
-        prob.setMatrixValue(0, 1, complex<double>(1.0, 1.0), true);
-        prob.setMatrixValue(1, 2, complex<double>(2.0, -1.0), true);
+        prob.setMatrixValue(0, 0, complex<double>(4.0, 0.0));
+        prob.setMatrixValue(1, 1, complex<double>(3.0, 0.0));
+        prob.setMatrixValue(2, 2, complex<double>(5.0, 0.0));
+        prob.setMatrixValue(0, 1, complex<double>(1.0, 1.0));
+        prob.setMatrixValue(1, 2, complex<double>(2.0, -1.0));
 
         prob.right_hand_side[0] = complex<double>(5.0, 1.0);
         prob.right_hand_side[1] = complex<double>(6.0, 2.0);
@@ -449,11 +449,11 @@ TEST_CASE("COCG Solver - Conjugate Orthogonal CG for Symmetric Complex")
         prob.setMaxIterations(1000);
         prob.setTolerance(1e-12);
 
-        prob.setMatrixValue(0, 0, complex<double>(4.0, 0.0), true);
-        prob.setMatrixValue(1, 1, complex<double>(3.0, 0.0), true);
-        prob.setMatrixValue(2, 2, complex<double>(5.0, 0.0), true);
-        prob.setMatrixValue(0, 1, complex<double>(1.0, 1.0), true);
-        prob.setMatrixValue(1, 2, complex<double>(2.0, -1.0), true);
+        prob.setMatrixValue(0, 0, complex<double>(4.0, 0.0));
+        prob.setMatrixValue(1, 1, complex<double>(3.0, 0.0));
+        prob.setMatrixValue(2, 2, complex<double>(5.0, 0.0));
+        prob.setMatrixValue(0, 1, complex<double>(1.0, 1.0));
+        prob.setMatrixValue(1, 2, complex<double>(2.0, -1.0));
 
         prob.right_hand_side[0] = complex<double>(5.0, 1.0);
         prob.right_hand_side[1] = complex<double>(6.0, 2.0);

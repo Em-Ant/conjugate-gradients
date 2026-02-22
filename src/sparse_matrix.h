@@ -29,10 +29,8 @@ class Sparse                                                    // Symmetric Mat
         Sparse():N(0),diag(0){};
         Sparse(unsigned long nrow);
         ~Sparse();
-        void setValue(unsigned long i,
-                 unsigned long j,
-                 double valu,
-                 bool replace);
+        void setValue(unsigned long i, unsigned long j, double valu);
+        void addToValue(unsigned long i, unsigned long j, double valu);
         void gaxpy( double *V,                                  // Matrix*Vector product (LAPACK terminology)
                     double *R);
         void printOut();

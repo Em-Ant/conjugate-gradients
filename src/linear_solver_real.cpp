@@ -47,9 +47,15 @@ void RealLinearSolver::setIterationUpdate(unsigned int iteration_update)
 }
 
 void RealLinearSolver::setMatrixValue(unsigned long row_index, unsigned long column_index,
-                                   double value, bool replace)
+                                   double value)
 {
-    matrix.setValue(row_index, column_index, value, replace);
+    matrix.setValue(row_index, column_index, value);
+}
+
+void RealLinearSolver::addToMatrixValue(unsigned long row_index, unsigned long column_index,
+                                     double value)
+{
+    matrix.addToValue(row_index, column_index, value);
 }
 
 unsigned int RealLinearSolver::getIterations()

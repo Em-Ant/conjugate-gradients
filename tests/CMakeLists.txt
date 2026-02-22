@@ -2,7 +2,7 @@
 # https://github.com/doctest/doctest
 
 add_executable(test_solvers test_solvers.cpp)
-include_directories(${CMAKE_SOURCE_DIR}/third_party)
+include_directories(${CMAKE_SOURCE_DIR}/tests/include)
 target_link_libraries(test_solvers PRIVATE sparse_solver)
 
 enable_testing()

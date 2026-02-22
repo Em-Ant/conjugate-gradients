@@ -28,7 +28,9 @@ class RealLinearSolver
         void setTolerance(double tolerance);
         void setMaxIterations(unsigned int max_iterations);
         void setMatrixValue(unsigned long row_index, unsigned long column_index,
-                          double value, bool replace);
+                          double value);
+        void addToMatrixValue(unsigned long row_index, unsigned long column_index,
+                          double value);
         void setIterationUpdate(unsigned int iteration_update);
         void printResult();
         unsigned int getIterations();

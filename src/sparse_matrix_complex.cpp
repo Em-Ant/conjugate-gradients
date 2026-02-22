@@ -25,16 +25,13 @@ ComplexSparseMatrix::~ComplexSparseMatrix()
     delete[] diagonal;
 }
 
-void ComplexSparseMatrix::setValue(unsigned long row_index, unsigned long column_index, complex<double> value, bool replace)
+void ComplexSparseMatrix::setValue(unsigned long row_index, unsigned long column_index, complex<double> value)
 {
     if (column_index >= number_of_rows) return;
 
     if(row_index == column_index)
     {
-        if(replace)
-            diagonal[row_index].val = value;
-        else
-            diagonal[row_index].val += value;
+        diagonal[row_index].val = value;                  // Replace
     }
     else if(diagonal[row_index].first == 0)
         diagonal[row_index].first = new ComplexEntry(value, column_index);
@@ -51,12 +48,41 @@ void ComplexSparseMatrix::setValue(unsigned long row_index, unsigned long column
         if (!current)
             previous->next = new ComplexEntry(value, column_index);
         else if(current->col == column_index)
+            current->val = value;                         // Replace
+        else
         {
-            if(replace)
-                current->val = value;
+            if(previous)
+                previous->next = new ComplexEntry(value, column_index, current);
             else
-                current->val += value;
+                diagonal[row_index].first = new ComplexEntry(value, column_index, current);
         }
+    }
+}
+
+void ComplexSparseMatrix::addToValue(unsigned long row_index, unsigned long column_index, complex<double> value)
+{
+    if (column_index >= number_of_rows) return;
+
+    if(row_index == column_index)
+    {
+        diagonal[row_index].val += value;                 // Add
+    }
+    else if(diagonal[row_index].first == 0)
+        diagonal[row_index].first = new ComplexEntry(value, column_index);
+    else
+    {
+        ComplexEntry *current = diagonal[row_index].first;
+        ComplexEntry *previous = 0;
+        while(current && current->col < column_index)
+        {
+            previous = current;
+            current = current->next;
+        }
+
+        if (!current)
+            previous->next = new ComplexEntry(value, column_index);
+        else if(current->col == column_index)
+            current->val += value;                        // Add
         else
         {
             if(previous)

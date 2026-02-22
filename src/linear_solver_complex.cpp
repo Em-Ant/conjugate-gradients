@@ -85,9 +85,15 @@ unsigned int ComplexLinearSolver::getIterations()
 }
 
 void ComplexLinearSolver::setMatrixValue(unsigned long row_index, unsigned long column_index,
-                                       complex<double> value, bool replace)
+                                       complex<double> value)
 {
-    matrix.setValue(row_index, column_index, value, replace);
+    matrix.setValue(row_index, column_index, value);
+}
+
+void ComplexLinearSolver::addToMatrixValue(unsigned long row_index, unsigned long column_index,
+                                         complex<double> value)
+{
+    matrix.addToValue(row_index, column_index, value);
 }
 
 void ComplexLinearSolver::printResult()

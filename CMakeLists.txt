@@ -13,9 +13,6 @@ endif()
 # Generate compile_commands.json for IDE integration
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Include third_party for all targets (doctest test framework)
-include_directories(${CMAKE_SOURCE_DIR}/third_party)
-
 enable_testing()
 include(CTest)
 
