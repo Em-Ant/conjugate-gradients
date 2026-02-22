@@ -5,8 +5,7 @@
 
 #include <doctest.h>
 
-#include "linear_solver_real.h"
-#include "linear_solver_complex.h"
+#include "linear_solver.h"
 
 TEST_CASE("Sparse Matrix - Basic Operations")
 {
@@ -300,9 +299,9 @@ TEST_CASE("Complex Sparse Matrix - Basic Operations")
         A.setValue(1, 1, complex<double>(2.0, 0.0));
         A.setValue(2, 2, complex<double>(3.0, 0.0));
 
-        REQUIRE(A.diagonal[0].val.real() == doctest::Approx(1.0));
-        REQUIRE(A.diagonal[1].val.real() == doctest::Approx(2.0));
-        REQUIRE(A.diagonal[2].val.real() == doctest::Approx(3.0));
+        REQUIRE(A.diag[0].val.real() == doctest::Approx(1.0));
+        REQUIRE(A.diag[1].val.real() == doctest::Approx(2.0));
+        REQUIRE(A.diag[2].val.real() == doctest::Approx(3.0));
     }
 
     SUBCASE("Set symmetric off-diagonal values (for eddy current)")
@@ -422,7 +421,7 @@ TEST_CASE("COCG Solver - Conjugate Orthogonal CG for Symmetric Complex")
         prob.right_hand_side[1] = complex<double>(6.0, 2.0);
         prob.right_hand_side[2] = complex<double>(7.0, -1.0);
 
-        prob.solveWithCOCGAndSSOR(1.0);
+        prob.solveWithSSOR(1.0);
 
         complex<double> Ax[3] = {0.0, 0.0, 0.0};
         prob.matrix.gaxpy(prob.solution, Ax);
@@ -459,7 +458,7 @@ TEST_CASE("COCG Solver - Conjugate Orthogonal CG for Symmetric Complex")
         prob.right_hand_side[1] = complex<double>(6.0, 2.0);
         prob.right_hand_side[2] = complex<double>(7.0, -1.0);
 
-        prob.solveWithCOCGAndSSOR(1.2);
+        prob.solveWithSSOR(1.2);
 
         complex<double> Ax[3] = {0.0, 0.0, 0.0};
         prob.matrix.gaxpy(prob.solution, Ax);
